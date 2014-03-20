@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Gamuza Freight - This module offers freights functionality.
+ * Copyright (C) 2013 Gamuza Technologies (http://www.gamuza.com.br/)
+ * Author: Eneias Ramos de Melo <eneias@gamuza.com.br>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU Library General Public
+ * License along with this library; if not, write to the
+ * Free Software Foundation, Inc., 51 Franklin St, Fifth Floor,
+ * Boston, MA  02110-1301, USA.
+ */
+
+/*
+ * See the AUTHORS file for a list of people on the Gamuza Team.
+ * See the ChangeLog files for a list of changes.
+ * These files are distributed with Gamuza_Freight at http://code.google.com/p/gamuzaopen/.
+ */
+-->
+
+<config>
+  <modules>
+    <Gamuza_Freight>
+      <version>0.0.3</version>
+    </Gamuza_Freight>
+  </modules>
+  <global>
+    <helpers>
+      <freight>
+        <class>Gamuza_Freight_Helper</class>
+      </freight>
+    </helpers>
+	<blocks>
+	  <freight>
+		<class>Gamuza_Freight_Block</class>
+	  </freight>
+	</blocks>
+	<models>
+	  <freight>
+		<class>Gamuza_Freight_Model</class>
+		<resourceModel>freight_mysql4</resourceModel>
+	  </freight>
+	  <freight_mysql4>
+		<class>Gamuza_Freight_Model_Mysql4</class>
+		<entities>
+		  <freights>
+			<table>gamuza_freights</table>
+		  </freights>
+        </entities>
+	  </freight_mysql4>
+	</models>
+	<resources>
+	  <freight_setup>
+		<setup>
+		  <module>Gamuza_Freight</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </freight_setup>
+	  <freight_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </freight_write>
+	  <freight_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </freight_read>
+	</resources>
+  </global>
+  <admin>
+	<routers>
+	  <freight>
+	    <use>admin</use>
+		<args>
+		  <module>Gamuza_Freight</module>
+		  <frontName>freight</frontName>
+		</args>
+	  </freight>
+	</routers>
+  </admin>
+    <frontend>
+        <translate>
+            <modules>
+                <Gamuza_Freight>
+                    <files>
+                        <default>Gamuza_Freight.csv</default>
+                    </files>
+                </Gamuza_Freight>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <freight>
+                    <file>freight.xml</file>
+                </freight>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Gamuza_Freight>
+                    <files>
+                        <default>Gamuza_Freight.csv</default>
+                    </files>
+                </Gamuza_Freight>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <freight>
+                    <file>freight.xml</file>
+                </freight>
+            </updates>
+        </layout>
+    </adminhtml>
+    <default>
+        <carriers>
+            <sedex>
+                <active>1</active>
+                <model>freight/carrier_sedex</model>
+                <name>sedex</name>
+                <title>Sedex</title>
+                <description>Método de Entrega Sedex</description>
+                <sort_order>0</sort_order>
+            </sedex>
+            <esedex>
+                <active>1</active>
+                <model>freight/carrier_esedex</model>
+                <name>esedex</name>
+                <title>e-Sedex</title>
+                <description>Método de Entrega e-Sedex</description>
+                <sort_order>1</sort_order>
+            </esedex>
+            <pac>
+                <active>1</active>
+                <model>freight/carrier_pac</model>
+                <name>pac</name>
+                <title>PAC</title>
+                <description>Método de Entrega PAC</description>
+                <sort_order>2</sort_order>
+            </pac>
+            <expressdelivery>
+                <active>1</active>
+                <model>freight/carrier_expressdelivery</model>
+                <name>expressdelivery</name>
+                <title>Entrega Expressa</title>
+                <description>Método de Entrega Expressa</description>
+                <sort_order>3</sort_order>
+            </expressdelivery>
+            <plus>
+                <active>1</active>
+                <model>freight/carrier_plus</model>
+                <name>plus</name>
+                <title>Plus</title>
+                <description>Método de Entrega Plus</description>
+                <sort_order>4</sort_order>
+            </plus>
+            <retire>
+                <active>1</active>
+                <model>freight/carrier_retire</model>
+                <name>retire</name>
+                <title>Retira</title>
+                <description>Método de Entrega Cliente Retira</description>
+                <sort_order>5</sort_order>
+            </retire>
+        </carriers>
+    </default>
+</config>
