@@ -122,7 +122,7 @@
         <layout>
             <updates>
                 <freight>
-                    <file>freight.xml</file>
+                    <file>gamuza/freight.xml</file>
                 </freight>
             </updates>
         </layout>
