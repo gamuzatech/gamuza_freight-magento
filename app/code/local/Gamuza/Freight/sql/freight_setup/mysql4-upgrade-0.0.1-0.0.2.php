@@ -29,7 +29,7 @@
 $installer = $this;
 $installer->startSetup();
 $sqlBlock = <<<SQLBLOCK
-ALTER TABLE gamuza_freights
+ALTER TABLE {$this->getTable ('gamuza_freights')}
     ADD website_id INT(11) AFTER id,
     ADD INDEX (website_id),
     ADD store_id INT(11) AFTER website_id,

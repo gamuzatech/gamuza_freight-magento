@@ -29,7 +29,7 @@
 $installer = $this;
 $installer->startSetup();
 $sqlBlock = <<<SQLBLOCK
-CREATE TABLE IF NOT EXISTS gamuza_freights
+CREATE TABLE IF NOT EXISTS {$this->getTable ('gamuza_freights')}
 (
     id int(11) unsigned NOT NULL AUTO_INCREMENT,
     carrier_id int(11) unsigned NOT NULL,
@@ -48,8 +48,8 @@ CREATE TABLE IF NOT EXISTS gamuza_freights
     KEY delivery_time (delivery_time),
     KEY delivery_price (delivery_price)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
-ALTER TABLE gamuza_freights
-    ADD CONSTRAINT gamuza_freights_ibfk_1 FOREIGN KEY (carrier_id) REFERENCES gamuza_carriers (id);
+ALTER TABLE {$this->getTable ('gamuza_freights')}
+    ADD CONSTRAINT {$this->getTable ('gamuza_freights')}_ibfk_1 FOREIGN KEY (carrier_id) REFERENCES {$this->getTable ('gamuza_carriers')} (id);
 SQLBLOCK;
 $installer->run($sqlBlock);
 //demo
