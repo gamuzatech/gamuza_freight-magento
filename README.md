@@ -22,7 +22,7 @@ Tenha as diversas transportadoras funcionando em sua plataforma magento. Use Sed
 
 Baixe a ultima versão aqui do pacote Gamuza_Freight-xxx.tbz2 e descompacte o arquivo baixado para dentro do diretório principal do Magento
 
-Limpe todos os caches em Sistema -> Gerenciamento de Cache
+<img src="https://dl.dropboxusercontent.com/s/ir2vm6cyo3gl1v8/pos-instalacao.png" alt="Após a instalação, limpe os caches, rode a compilação, faça logout e login." title="Após a instalação, limpe os caches, rode a compilação, faça logout e login." />
 
 <h2>Conhecendo o módulo</h2>
 
