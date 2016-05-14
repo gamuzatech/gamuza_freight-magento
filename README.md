@@ -35,9 +35,13 @@ E se for necessário, adicionar uma URL customizada utilizada para o rastreio da
 
 **2 - Habililitando transportadora e importando ou exportando tabela de valores para fretes no formato CSV**
 
+*Obs: Nosso módulo trabalha com valores em gramas e centavos. Logo utilize 250 para 250g e 199 para R$ 1,99.*
+
 <img src="https://dl.dropboxusercontent.com/s/dlk2va8mfled9bp/gamuza-freight-habilitando-importando-exportando-tabela-valores-fretes-csv.png" alt="" title="Gamuza Fretes - Magento - Configuração no Painel Administrativo - Habililitando transportadora e importando ou exportando tabela de valores para fretes no formato CSV" />
 
 **3 - Cadastrando ou alterando valor de frete específico**
+
+*Obs: Nosso módulo trabalha com valores em gramas e centavos. Logo utilize 250 para 250g e 199 para R$ 1,99.*
 
 <img src="https://dl.dropboxusercontent.com/s/ioerixdgzb0kab0/gamuza-fretes-cadastrando-alterando-valor-frete-especifico.png" alt="" title="Gamuza Fretes - Magento - Cadastrando ou alterando valor de frete específico" />
 
