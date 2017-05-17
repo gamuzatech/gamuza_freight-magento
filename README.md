@@ -2,7 +2,7 @@
 
 **Compatível com a plataforma Magento CE versão 1.6 a 1.9**
 
-[Necessário módulo Gamuza_Utils](https://github.com/gamuzabrasil/gamuza_utils-magento)
+[Necessário módulo Gamuza_Utils](https://github.com/gamuzatech/gamuza_utils-magento)
 
 Tenha as diversas transportadoras funcionando em sua plataforma magento. Use Sedex, e-Sedex, Pac e mais. Tenha o rastreio de seus pedidos funcionando diretamente com os correios. 
  
@@ -16,7 +16,7 @@ Tenha as diversas transportadoras funcionando em sua plataforma magento. Use Sed
 
     $ cd /path/to/magento
     $ modgit init
-    $ modgit add gamuza_freight https://github.com/gamuzabrasil/gamuza_freight-magento.git
+    $ modgit add gamuza_freight https://github.com/gamuzatech/gamuza_freight-magento.git
 
 **Instalação manual dos arquivos**
 
