@@ -175,12 +175,14 @@ extends Mage_Adminhtml_Controller_Action
 		header('Content-type: application/octet-stream');
 		header("Content-disposition: attachment; filename={$carrier_name}.csv");
 
-		echo implode (',', array ('BeginZip', 'EndZip', 'BeginWeight', 'EndWeight', 'DeliveryTime', 'DeliveryPrice')) . "\n";
+		echo implode (',', array ('BeginZip', 'EndZip', 'BeginWeight', 'EndWeight', 'DeliveryType', 'DeliveryTime', 'DeliveryPrice')) . PHP_EOL;
+
 		foreach ($collection as $item)
 		{
-			echo implode (',', $item->toArray (array ('begin_zip', 'end_zip', 'begin_weight', 'end_weight', 'delivery_time', 'delivery_price'))) . "\n";
+			echo implode (',', $item->toArray (array ('begin_zip', 'end_zip', 'begin_weight', 'end_weight', 'delivery_type', 'delivery_time', 'delivery_price'))) . PHP_EOL;
 		}
 
 		die;
 	}
 }
+

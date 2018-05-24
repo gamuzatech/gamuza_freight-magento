@@ -108,6 +108,13 @@ extends Mage_Adminhtml_Block_Widget_Grid
 		"align" =>"left",
 		"index" => "end_weight",
 		));
+		$this->addColumn("delivery_type", array(
+		"header" => Mage::helper("freight")->__("Delivery Type"),
+		"align" =>"left",
+		"index" => "delivery_type",
+		"type" => "options",
+		"options" => Mage::getModel ('freight/system_config_source_delivery_type')->toArray (),
+		));
 		$this->addColumn("delivery_time", array(
 		"header" => Mage::helper("freight")->__("Delivery Time"),
 		"align" =>"left",
@@ -127,3 +134,4 @@ extends Mage_Adminhtml_Block_Widget_Grid
 	   return $this->getUrl("*/*/edit", array("id" => $row->getId()));
 	}
 }
+

@@ -91,6 +91,13 @@ extends Mage_Adminhtml_Block_Widget_Form
 		"required" => true,
 		"name" => "end_weight",
 		));
+		$fieldset->addField("delivery_type", "select", array(
+		"label" => Mage::helper("freight")->__("Delivery Type"),
+		"class" => "required-entry",
+		"required" => true,
+		"name" => "delivery_type",
+		"options" => Mage::getModel ('freight/system_config_source_delivery_type')->toArray (),
+		));
 		$fieldset->addField("delivery_time", "text", array(
 		"label" => Mage::helper("freight")->__("Delivery Time"),
 		"class" => "required-entry",
@@ -117,3 +124,4 @@ extends Mage_Adminhtml_Block_Widget_Form
 		return parent::_prepareForm();
 	}
 }
+

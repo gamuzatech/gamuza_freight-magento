@@ -42,9 +42,10 @@ implements Mage_Shipping_Model_Carrier_Interface
 	
 		$packageWeight = $request->getPackageWeight ();
 	
-		$shipping = Mage::getModel ('freight/config')->getShippingPrice ($this->_code, $postCode, $packageWeight);
+		$shipping = Mage::getModel ('freight/config')->getShippingPrice ($this->_code, $postCode, $packageWeight, $request);
 		if ($shipping != null)
 		{
+            $shippingDeliveryType = $shipping->getData ('delivery_type');
 			$shippingDeliveryPrice = $shipping->getData ('delivery_price') / 100;
 			$shippingDeliveryTime = $shipping->getData ('delivery_time');
 			
@@ -52,7 +53,7 @@ implements Mage_Shipping_Model_Carrier_Interface
 			$method->setCarrier($this->_code);
 			$method->setCarrierTitle($this->getConfigData('title'));
 			$method->setMethod($this->_code);
-			$method->setMethodTitle($this->getConfigData('name') . Mage::helper ('freight')->formatShippingTime ($shippingDeliveryTime));
+			$method->setMethodTitle($this->getConfigData('title') . ' - ' . Mage::helper ('freight')->formatShippingTime ($shippingDeliveryType, $shippingDeliveryTime));
 			$method->setPrice($shippingDeliveryPrice);
 			$method->setCost($shippingDeliveryPrice);
 			$result->append($method);
@@ -126,3 +127,4 @@ implements Mage_Shipping_Model_Carrier_Interface
 		return true;
 	}
 }
+

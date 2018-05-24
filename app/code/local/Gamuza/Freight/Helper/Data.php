@@ -29,22 +29,29 @@
 class Gamuza_Freight_Helper_Data
 extends Mage_Core_Helper_Abstract
 {
+    const DELIVERY_TYPE_MONTH  = 'month';
+    const DELIVERY_TYPE_WEEK   = 'week';
+    const DELIVERY_TYPE_DAY    = 'day';
+    const DELIVERY_TYPE_HOUR   = 'hour';
+    const DELIVERY_TYPE_MINUTE = 'minute';
+
 	public function validatePostcode ($rawPostcode)
 	{
-		$postCode = str_replace ('-', chr(0), $rawPostcode);
+		$postCode = preg_replace ('[\D]', "", $rawPostcode);
+
 		if (empty ($postCode) || strlen ($postCode) != 8 || !is_numeric ($postCode))
 		{
 			// Mage::getSingleton('core/session')->addError(Mage::helper ('freight')->__('Please enter a valid ZIP code.'));
-		
-			return;
+
+			return null;
 		}
-	
+
 		return $postCode;
 	}
 
-	public function formatShippingTime ($deliveryTime)
+	public function formatShippingTime ($deliveryType, $deliveryTime)
 	{
-		$plural = $deliveryTime > 1 ? 's' : chr (0);
-		return chr(32) . Mage::helper ('freight')->__("Delivered within %d day%s", $deliveryTime, $plural) . chr(32);
+		return sprintf ("%s %d %s(s)", $this->__('Delivery Time'), intval ($deliveryTime), $this->__(ucfirst ($deliveryType)));
 	}
 }
+

@@ -31,7 +31,7 @@
 <config>
   <modules>
     <Gamuza_Freight>
-      <version>0.0.3</version>
+      <version>0.0.4</version>
     </Gamuza_Freight>
   </modules>
   <global>
@@ -169,14 +169,23 @@
                 <description>Método de Entrega Plus</description>
                 <sort_order>4</sort_order>
             </plus>
+            <motoboy>
+                <active>1</active>
+                <model>freight/carrier_motoboy</model>
+                <name>motoboy</name>
+                <title>Motoboy</title>
+                <description>Método de Entrega Motoboy</description>
+                <sort_order>5</sort_order>
+            </motoboy>
             <retire>
                 <active>1</active>
                 <model>freight/carrier_retire</model>
                 <name>retire</name>
                 <title>Retira</title>
                 <description>Método de Entrega Cliente Retira</description>
-                <sort_order>5</sort_order>
+                <sort_order>6</sort_order>
             </retire>
         </carriers>
     </default>
 </config>
+

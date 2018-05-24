@@ -10,6 +10,7 @@
 "Begin Package Weight","Início do Peso"
 "End Package Weight","Fim do Peso"
 "Delivery Time","Tempo para Entrega"
+"Delivery Type","Tipo de Entrega"
 "Delivery Price","Preço para Entrega"
 "Item Information","Informações do Frete"
 "Add Item","Adicionar Item"
@@ -37,3 +38,6 @@
 "Export e-Sedex to CSV","Exportar e-Sedex para CSV"
 "Export Sedex to CSV","Exportar Sedex para CSV"
 "Export Express Delivery to CSV","Exportar Entrega Expressa para CSV"
+"Hour","Hora"
+"Minute","Minuto"
+

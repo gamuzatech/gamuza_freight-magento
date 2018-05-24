@@ -29,12 +29,12 @@
 class Gamuza_Freight_Model_Config
 extends Mage_Core_Model_Abstract
 {
-	public function getShippingPrice ($carrierName, $postCode, $packageWeight)
+	public function getShippingPrice ($carrierName, $postCode, $packageWeight, Mage_Shipping_Model_Rate_Request $request)
 	{
 		$carrier = $this->_getCarrier ($carrierName);
 		$carrier_id = $carrier->getData ('id');
-		$website_id = $this->_getActualWebsiteId ();
-		$store_id = $this->_getActualStoreId ();
+		$website_id = $request->getWebsiteId (); // $this->_getActualWebsiteId ();
+		$store_id = $request->getStoreId (); // $this->_getActualStoreId ();
 
 $sqlBlock = <<<SQLBLOCK
 carrier_id = $carrier_id
@@ -84,8 +84,9 @@ SQLBLOCK;
 		|| strcmp (strtolower ($line [1]), 'endzip')
 		|| strcmp (strtolower ($line [2]), 'beginweight')
 		|| strcmp (strtolower ($line [3]), 'endweight')
-		|| strcmp (strtolower ($line [4]), 'deliverytime')
-		|| strcmp (strtolower ($line [5]), 'deliveryprice')) return;
+		|| strcmp (strtolower ($line [4]), 'deliverytype')
+		|| strcmp (strtolower ($line [5]), 'deliverytime')
+		|| strcmp (strtolower ($line [6]), 'deliveryprice')) return;
 	
 		$resource = Mage::getSingleton ('core/resource');
 		$write = $resource->getConnection ('core_write');
@@ -124,8 +125,9 @@ SQLBLOCK;
 					'end_zip' => $line [1],
 					'begin_weight' => $line [2],
 					'end_weight' => $line [3],
-					'delivery_time' => $line [4],
-					'delivery_price' => $line [5]);
+					'delivery_type' => $line [4],
+					'delivery_time' => $line [5],
+					'delivery_price' => $line [6]);
 		
 			$write->insert ($table, $data);
 		
@@ -157,3 +159,4 @@ SQLBLOCK;
 	    return Mage::getModel ('utils/config')->getActualStore ()->getId ();
 	}
 }
+
